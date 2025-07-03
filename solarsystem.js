@@ -27,7 +27,7 @@ const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sun);
 
-// 🌟 Sun Glow Sprite
+
 const textureLoader = new THREE.TextureLoader();
 textureLoader.load('https://threejs.org/examples/textures/lensflare/lensflare0.png', (texture) => {
   const spriteMaterial = new THREE.SpriteMaterial({
@@ -84,7 +84,6 @@ planetData.forEach(data => {
     rotationSpeed: 0.01
   });
 
-  // Label
   const div = document.createElement("div");
   div.className = "label";
   div.textContent = data.name;
@@ -96,7 +95,7 @@ planetData.forEach(data => {
   document.body.appendChild(div);
   labels.push(div);
 
-  // Orbit
+ 
   const orbitGeometry = new THREE.BufferGeometry();
   const segments = 128;
   const points = [];
@@ -119,7 +118,6 @@ planetData.forEach(data => {
   orbits.push(orbit);
 });
 
-// Stars
 function createStars(count) {
   const geometry = new THREE.BufferGeometry();
   const positions = [];
@@ -197,7 +195,7 @@ document.getElementById('pauseResumeBtn').addEventListener('click', e => {
   e.target.textContent = isPaused ? 'Resume' : 'Pause';
 });
 
-// Toggle Theme
+
 document.getElementById('toggleThemeBtn').addEventListener('click', () => {
   const isLight = document.body.classList.toggle('light-mode');
   scene.background = new THREE.Color(isLight ? 0xe0e0e0 : 0x000000);
@@ -213,14 +211,14 @@ document.getElementById('toggleThemeBtn').addEventListener('click', () => {
   });
 });
 
-// Toggle Panel
+
 document.getElementById('controlHeader').addEventListener('click', () => {
   const panel = document.getElementById('controlPanel');
   panel.classList.toggle('collapsed');
   document.getElementById('togglePanelBtn').textContent = panel.classList.contains('collapsed') ? '▼' : '▲';
 });
 
-// Info Panel
+
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const planetInfo = {
