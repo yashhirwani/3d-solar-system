@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  transition: background 0.4s, color 0.4s;
+}
+
+body.light-mode {
+  background: #e0e0e0;
+  color: #000;
+}
+
+#solarSystemCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 0;
+}
+
+#controlPanel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 0;
+  border-radius: 8px;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+body.light-mode #controlPanel {
+  background: rgba(255,255,255,0.85);
+  color: #000;
+}
+
+#controlPanel.collapsed {
+  background: rgba(0,0,0,0.1);
+}
+body.light-mode #controlPanel.collapsed {
+  background: rgba(255,255,255,0.2);
+}
+
+#controlHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  background: transparent;
+}
+
+#togglePanelBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#controlContent {
+  padding: 10px 15px;
+}
+
+#controlPanel.collapsed #controlContent {
+  display: none;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.control label {
+  font-weight: 600;
+  width: 120px;
+}
+
+.control input[type="range"] {
+  width: 120px;
+}
+
+#pauseResumeBtn,
+#toggleThemeBtn {
+  display: block;
+  margin: 8px 0;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+body.light-mode #pauseResumeBtn,
+body.light-mode #toggleThemeBtn {
+  background: #222;
+  color: #fff;
+}
+
+#pauseResumeBtn:hover,
+#toggleThemeBtn:hover {
+  background: #777;
+}
+
+#infoPanel {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  z-index: 3;
+  max-width: 220px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+body.light-mode #infoPanel {
+  background: rgba(255,255,255,0.95);
+  color: #000;
+}
+#infoPanel h2 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+#infoPanel p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+#closeInfoBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #controlPanel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  #controlContent {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}
